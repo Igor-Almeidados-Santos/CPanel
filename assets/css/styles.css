@@ -67,6 +67,7 @@ img{
 button{
     font: inherit;
     color:inherit;
+    background-color: transparent;
     border: none;
     border-radius: .4rem;
     cursor: pointer;
@@ -107,7 +108,7 @@ i{
 }
 /* Header */
 .header{
-    background-color: var(--dark-color-lighter);
+    background-color: var(--dark-color);
 }
 
 .nav{
@@ -145,7 +146,7 @@ i{
     top: 0;
     left: 0;
     padding: 2.5rem;
-    /* transform: translateX(-105%); */
+    transform: translateX(-105%);
     z-index: 999;
     transition: transform .5s;
 }
@@ -166,14 +167,52 @@ i{
 .current{
     color: var(--dark-color);
 }
+
 .menu-toggle-close{
     background-color: var(--body-background-color);
     position: absolute;
     top: 2.5rem;
+    right: 2.5rem;
+}
+
+.dropdown-menu{
+    background-color: #eef0f8;
+    gap: 0;
+    margin-left: 1.5rem;
+    transform: translateY(-3px);
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .5s; 
+}
+
+.dropdown > .list-link i{
+    transition: transform .25s;
 }
 
 /* JavaScript styles */
+.nav-mobile.active{
+    transform: translateX(0);
+}
 
+.theme-light .theme-dark-icon{
+    display: block;
+}
+
+.theme-light .theme-light-icon{
+    display: none;
+}
+
+.dropdown.active > .list-link i{
+    transform: rotate(90deg);
+}
+
+.dropdown.active .dropdown-menu{
+    height: initial;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
 /* Welcome message */
 
 /* Management area */
